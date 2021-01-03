@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/home_icon"
+        android:title="Home" />
+    <item
+        android:id="@+id/category"
+        android:icon="@drawable/category_icon"
+        android:title="Categories" />
+    <item
+        android:id="@+id/fav"
+        android:icon="@drawable/fav_icon"
+        android:title="Favourite" />
+    <item
+        android:id="@+id/wallet"
+        android:icon="@drawable/wallet_icon"
+        android:title="Wallet" />
+</menu>
