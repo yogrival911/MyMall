@@ -1,5 +1,6 @@
 package com.yogdroidtech.mymall.products;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.yogdroidtech.mymall.R;
+import com.yogdroidtech.mymall.productdetail.ProductDetailActivity;
 
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyViewHolder> {
 
@@ -21,6 +23,13 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToProductDetail = new Intent(holder.itemView.getContext(), ProductDetailActivity.class);
+                holder.itemView.getContext().startActivity(goToProductDetail);
+            }
+        });
 
     }
 
