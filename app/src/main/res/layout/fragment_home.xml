@@ -30,6 +30,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="Categories"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/viewPagerBanner"
             app:layout_constraintTop_toBottomOf="@+id/viewPagerBanner" />
 
@@ -38,6 +41,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/dealDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Today's Deal"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerCategoryHome" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
