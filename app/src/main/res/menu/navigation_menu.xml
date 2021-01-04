@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Item" />
-    <item android:title="Item" />
-    <item android:title="Item" />
+    <item
+        android:icon="@drawable/location_icon"
+        android:title="My Addresses" />
+    <item android:title="My Orders" />
+    <item android:title="Order On whatsapp" />
+    <item android:title="Share App" />
+    <item android:title="Review App" />
+    <item android:title="Contact Us" />
+    <item android:title="Sign In" />
 </menu>
