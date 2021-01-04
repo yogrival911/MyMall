@@ -62,8 +62,6 @@ public class HomeFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerCategoryHome.setLayoutManager(linearLayoutManager);
 
-
-
         categoryModelList = new ArrayList<>();
 
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -86,31 +84,53 @@ public class HomeFragment extends Fragment {
                 });
 
 
-
-
-
-
-
         sliderModelList = new ArrayList<>();
 
+        firebaseFirestore.collection("BANNERS").orderBy("index").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            for(QueryDocumentSnapshot documentSnapshot : task.getResult()){
+                                sliderModelList.add(new SliderModel(documentSnapshot.get("url").toString()));
+                            }
+                            List<SliderModel> sliderModelListNew = new ArrayList<>();
+                            sliderModelListNew.add(sliderModelList.get(sliderModelList.size()-2));
+                            sliderModelListNew.add(sliderModelList.get(sliderModelList.size()-1));
 
-        sliderModelList.add(new SliderModel(R.mipmap.veg));
-        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher));
+                            sliderModelListNew.addAll(sliderModelList);
 
-        sliderModelList.add(new SliderModel(R.mipmap.veg));
-        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher));
-        sliderModelList.add(new SliderModel(R.mipmap.veg_foreground));
-        sliderModelList.add(new SliderModel(R.mipmap.veg));
-        sliderModelList.add(new SliderModel(R.mipmap.veg));
-        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher));
+                            sliderModelListNew.add(sliderModelList.get(0));
+                            sliderModelListNew.add(sliderModelList.get(1));
 
-        sliderModelList.add(new SliderModel(R.mipmap.veg));
-        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher));
+                            SliderAdapter sliderAdapter = new SliderAdapter(sliderModelListNew);
+                            viewPager2.setClipToPadding(false);
+                            viewPager2.setPageMargin(20);
+                            viewPager2.setAdapter(sliderAdapter);
+                        }
+                        else{
+                            Toast.makeText(getContext(), task.getException().toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
-        SliderAdapter sliderAdapter = new SliderAdapter(sliderModelList);
-        viewPager2.setClipToPadding(false);
-        viewPager2.setPageMargin(20);
-        viewPager2.setAdapter(sliderAdapter);
+//        sliderModelList.add(new SliderModel(R.mipmap.veg));
+//        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher));
+//
+//        sliderModelList.add(new SliderModel(R.mipmap.veg));
+//        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher));
+//        sliderModelList.add(new SliderModel(R.mipmap.veg_foreground));
+//        sliderModelList.add(new SliderModel(R.mipmap.veg));
+//        sliderModelList.add(new SliderModel(R.mipmap.veg));
+//        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher));
+//
+//        sliderModelList.add(new SliderModel(R.mipmap.veg));
+//        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher));
+//
+//        SliderAdapter sliderAdapter = new SliderAdapter(sliderModelList);
+//        viewPager2.setClipToPadding(false);
+//        viewPager2.setPageMargin(20);
+//        viewPager2.setAdapter(sliderAdapter);
         viewPager2.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

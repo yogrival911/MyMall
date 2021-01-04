@@ -44,6 +44,7 @@ public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.MyVie
 
 
         loadImage(holder.ivCategoryItem,categoryModelList.get(position).getIconUrl(),getProgressDrawable(context));
+        holder.tvCategoryName.setText(categoryModelList.get(position).getCategoryName());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
