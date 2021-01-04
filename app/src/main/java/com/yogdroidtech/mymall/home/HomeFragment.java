@@ -3,6 +3,9 @@ package com.yogdroidtech.mymall.home;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -11,9 +14,11 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.yogdroidtech.mymall.R;
 import com.yogdroidtech.mymall.model.SliderModel;
+import com.yogdroidtech.mymall.util.CategoryAdapter;
 import com.yogdroidtech.mymall.util.SliderAdapter;
 
 import java.util.ArrayList;
@@ -30,6 +35,7 @@ public class HomeFragment extends Fragment {
     Timer timer;
     final private long DELAY_TIME = 2000;
     final private  long INTERVAL = 2000;
+    RecyclerView recyclerCategoryHome;
 
     public HomeFragment() {
     }
@@ -40,7 +46,11 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         viewPager2 = (ViewPager) view.findViewById(R.id.viewPagerBanner);
-
+        recyclerCategoryHome = view.findViewById(R.id.recyclerCategoryHome);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerCategoryHome.setLayoutManager(linearLayoutManager);
+        recyclerCategoryHome.setAdapter(new CategoryAdapter());
         sliderModelList = new ArrayList<>();
 
 
