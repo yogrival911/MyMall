@@ -25,15 +25,25 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.yogdroidtech.mymall.R;
+import com.yogdroidtech.mymall.model.Categories;
 import com.yogdroidtech.mymall.model.CategoryModel;
 import com.yogdroidtech.mymall.model.SliderModel;
+import com.yogdroidtech.mymall.products.ProductRecommededAdapter;
+import com.yogdroidtech.mymall.products.RecommendedProducts;
 import com.yogdroidtech.mymall.util.CategoryAdapter;
+import com.yogdroidtech.mymall.util.RetrofitClientInstance;
+import com.yogdroidtech.mymall.util.RetrofitIInterface;
 import com.yogdroidtech.mymall.util.SliderAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 
 public class HomeFragment extends Fragment {
@@ -46,7 +56,9 @@ public class HomeFragment extends Fragment {
     final private long DELAY_TIME = 2000;
     final private  long INTERVAL = 2000;
     RecyclerView recyclerCategoryHome;
+    RecyclerView recyclerRecommended;
     FirebaseFirestore firebaseFirestore;
+    Retrofit retrofit;
 
     public HomeFragment() {
     }
@@ -57,32 +69,64 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         viewPager2 = (ViewPager) view.findViewById(R.id.viewPagerBanner);
+
         recyclerCategoryHome = view.findViewById(R.id.recyclerCategoryHome);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3);
+        recyclerCategoryHome.setLayoutManager(gridLayoutManager);
+        recyclerCategoryHome.setNestedScrollingEnabled(false);
+
+        recyclerRecommended = view.findViewById(R.id.recyclerRecommended);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        recyclerCategoryHome.setLayoutManager(linearLayoutManager);
+        linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
+        recyclerRecommended.setLayoutManager(linearLayoutManager);
+
+        retrofit = RetrofitClientInstance.getInstance();
+        RetrofitIInterface.RetrofitInterface retrofitInterface = retrofit.create(RetrofitIInterface.RetrofitInterface.class);
+
+        Call<RecommendedProducts> recommendedProductsCall = retrofitInterface.getrecommendedproductslist();
+        recommendedProductsCall.enqueue(new Callback<RecommendedProducts>() {
+            @Override
+            public void onResponse(Call<RecommendedProducts> call, Response<RecommendedProducts> response) {
+                if(response.isSuccessful()){
+
+                    ProductRecommededAdapter productRecommededAdapter = new ProductRecommededAdapter(response.body());
+                    recyclerRecommended.setAdapter(productRecommededAdapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RecommendedProducts> call, Throwable t) {
+
+            }
+        });
 
         categoryModelList = new ArrayList<>();
+        Call<Categories> dataCall = retrofitInterface.getCategories();
+        dataCall.enqueue(new Callback<Categories>() {
+            @Override
+            public void onResponse(Call<Categories> call, Response<Categories> response) {
+                if(response.isSuccessful()){
+                    for(int i =0; i<response.body().getData().size(); i++){
+                        String imgUrl = response.body().getData().get(i).getImage();
+                        String actualUrl = "http://admin.veggiegram.in/adminuploads/category/" + imgUrl;
+                        categoryModelList.add(new CategoryModel(actualUrl,response.body().getData().get(i).getName()));
+                    }
+                    CategoryAdapter categoryAdapter = new CategoryAdapter(categoryModelList);
+                    recyclerCategoryHome.setAdapter(categoryAdapter);
+                }
+                else{
+                    Toast.makeText(getContext(), response.errorBody().toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Categories> call, Throwable t) {
+
+            }
+        });
+
 
         firebaseFirestore = FirebaseFirestore.getInstance();
-        firebaseFirestore.collection("CATEGORIES").orderBy("index").get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if(task.isSuccessful()){
-                            for(QueryDocumentSnapshot documentSnapshot : task.getResult()){
-                                categoryModelList.add(new CategoryModel(documentSnapshot.get("icon").toString(),documentSnapshot.get("categoryName").toString()));
-                            }
-                            CategoryAdapter categoryAdapter = new CategoryAdapter(categoryModelList);
-                            recyclerCategoryHome.setAdapter(categoryAdapter);
-                            Log.i("yogesh", categoryModelList.toString());
-                        }
-                        else{
-                            Toast.makeText(getContext(), task.getException().toString(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
 
         sliderModelList = new ArrayList<>();
 
