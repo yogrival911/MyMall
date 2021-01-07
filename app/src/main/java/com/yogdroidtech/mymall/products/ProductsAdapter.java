@@ -36,7 +36,7 @@ RecommendedProducts recommendedProducts;
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.productName.setText(recommendedProducts.getData().get(position).getName());
         holder.quantity.setText(recommendedProducts.getData().get(position).getUnit()+" "+ recommendedProducts.getData().get(position).getUnitname());
-        holder.price.setText("\\u20A8" +recommendedProducts.getData().get(position).getPrice());
+        holder.price.setText(" " +recommendedProducts.getData().get(position).getPrice());
 
         String img = recommendedProducts.getData().get(position).getImage();
         String url = "http://admin.veggiegram.in/adminuploads/products/" + img;
