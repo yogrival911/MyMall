@@ -4,7 +4,6 @@ package com.yogdroidtech.mymall.products;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.yogdroidtech.mymall.model.Datum;
 
 public class RecommendedProducts {
 
@@ -13,7 +12,7 @@ public class RecommendedProducts {
     private Boolean success;
     @SerializedName("data")
     @Expose
-    private List<Datum> data = null;
+    private List<com.yogdroidtech.mymall.products.Datum> data = null;
     @SerializedName("message")
     @Expose
     private String message;
@@ -30,7 +29,7 @@ public class RecommendedProducts {
         return data;
     }
 
-    public void setData(List<Datum> data) {
+    public void setData(List<com.yogdroidtech.mymall.products.Datum> data) {
         this.data = data;
     }
 

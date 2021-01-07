@@ -1,6 +1,7 @@
 package com.yogdroidtech.mymall.products;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,11 @@ public class ProductRecommededAdapter extends RecyclerView.Adapter<ProductRecomm
 
         holder.tvProductName.setText(recommendedProducts.getData().get(position).getName());
 
+        holder.tvProductPrice.setPaintFlags(holder.tvProductPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        holder.tvProductPrice.setText(recommendedProducts.getData().get(position).getPrice().toString());
+
+        holder.tvProductSellPrice.setText(recommendedProducts.getData().get(position).getSellprice().toString());
+
     }
 
     @Override
@@ -52,12 +58,13 @@ public class ProductRecommededAdapter extends RecyclerView.Adapter<ProductRecomm
 
     public class RecViewHolder extends RecyclerView.ViewHolder {
         ImageView ivProductItem;
-        TextView tvProductName, tvProductPrice;
+        TextView tvProductName, tvProductPrice, tvProductSellPrice;
         public RecViewHolder(@NonNull View itemView) {
             super(itemView);
             ivProductItem = itemView.findViewById(R.id.ivProductItem);
             tvProductName = itemView.findViewById(R.id.tvProductName);
             tvProductPrice = itemView.findViewById(R.id.tvProductPrice);
+            tvProductSellPrice = itemView.findViewById(R.id.tvProductSellPrice);
         }
     }
 
