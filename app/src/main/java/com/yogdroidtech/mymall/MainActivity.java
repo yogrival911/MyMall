@@ -39,6 +39,7 @@ private ActionBarDrawerToggle toggle;
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frame, new HomeFragment())
