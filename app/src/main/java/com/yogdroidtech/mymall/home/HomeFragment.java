@@ -17,6 +17,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -69,6 +70,7 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         viewPager2 = (ViewPager) view.findViewById(R.id.viewPagerBanner);
+
 
         recyclerCategoryHome = view.findViewById(R.id.recyclerCategoryHome);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3);

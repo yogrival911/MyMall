@@ -15,6 +15,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                android:background="@drawable/search_round_background"
+                android:backgroundTint="#FFFFFF"
+                android:clickable="true"
+                android:iconifiedByDefault="false"
+                android:queryHint="Search Products" />
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -24,7 +34,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="230dp"
                     android:paddingLeft="16dp"
-                    android:paddingTop="8dp"
                     android:paddingRight="16dp"
                     android:paddingBottom="8dp"
                     app:layout_constraintEnd_toEndOf="parent"

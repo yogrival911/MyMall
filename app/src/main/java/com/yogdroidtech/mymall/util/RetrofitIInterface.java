@@ -7,6 +7,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface RetrofitIInterface {
     public interface RetrofitInterface {
@@ -15,5 +16,8 @@ public interface RetrofitIInterface {
 
         @GET("getrecommendedproductslist")
         Call<RecommendedProducts> getrecommendedproductslist();
+
+        @GET("getproductslistbycatid/{position}")
+        Call<RecommendedProducts> getProductslistByCategory(@Path("position") String position);
     }
 }

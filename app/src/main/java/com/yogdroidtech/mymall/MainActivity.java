@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -85,6 +86,25 @@ private ActionBarDrawerToggle toggle;
         if (toggle.onOptionsItemSelected(item)) {
             return true;
         }
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()){
+
+            case R.id.address:
+
+            case R.id.order:
+                break;
+            case R.id.share:
+                Intent sharingIntent = new Intent();
+                sharingIntent.setAction(Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBody = "Check out Weather & Air Pollution Monitor";
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Weather & Air Pollution Monitor");
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(sharingIntent, "Share via"));
+                break;
+
+        }
+        return true;
+
+
     }
 }

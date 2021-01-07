@@ -50,6 +50,7 @@ public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.MyVie
             @Override
             public void onClick(View view) {
                 Intent productListIntent = new Intent(holder.itemView.getContext(), ProductsActivity.class);
+                productListIntent.putExtra("position", position);
                 holder.itemView.getContext().startActivity(productListIntent);
             }
         });
@@ -65,7 +66,7 @@ public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.MyVie
         TextView tvCategoryName;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            ivCategoryItem = itemView.findViewById(R.id.ivCategoryItem);
+            ivCategoryItem = itemView.findViewById(R.id.ivProductImage);
             tvCategoryName = itemView.findViewById(R.id.tvCategoryName);
         }
     }
