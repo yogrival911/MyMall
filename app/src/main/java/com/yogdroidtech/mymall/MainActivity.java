@@ -19,6 +19,7 @@ import com.yogdroidtech.mymall.category.CategoryFragment;
 import com.yogdroidtech.mymall.favourite.FavFragment;
 import com.yogdroidtech.mymall.home.HomeFragment;
 import com.yogdroidtech.mymall.register.SignUpFragment;
+import com.yogdroidtech.mymall.register.loginFragment;
 import com.yogdroidtech.mymall.wallet.WalletFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -59,7 +60,7 @@ private ActionBarDrawerToggle toggle;
                         selectedFragment = new CategoryFragment();
                         break;
                     case R.id.fav:
-                        selectedFragment = new SignUpFragment();
+                        selectedFragment = new loginFragment();
                         break;
                     case R.id.wallet:
                         selectedFragment = new WalletFragment();
