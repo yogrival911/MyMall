@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ import com.yogdroidtech.mymall.R;
 public class loginFragment extends Fragment {
 TextView createNewAcc;
 FrameLayout frameLayout;
+Button sendOTP;
     public loginFragment() {
     }
 
@@ -28,6 +30,18 @@ FrameLayout frameLayout;
 
         frameLayout = view.findViewById(R.id.frame);
         createNewAcc = view.findViewById(R.id.createNewAcc);
+        sendOTP = view.findViewById(R.id.sendOTP);
+        sendOTP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment = new OTPFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                fragmentTransaction.replace(R.id.frame, fragment);
+                fragmentTransaction.commit();
+            }
+        });
         createNewAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
