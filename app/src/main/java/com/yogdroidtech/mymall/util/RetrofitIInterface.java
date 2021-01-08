@@ -19,5 +19,6 @@ public interface RetrofitIInterface {
 
         @GET("getproductslistbycatid/{position}")
         Call<RecommendedProducts> getProductslistByCategory(@Path("position") String position);
+
     }
 }
