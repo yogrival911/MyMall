@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ public class loginFragment extends Fragment {
 TextView createNewAcc;
 FrameLayout frameLayout;
 Button sendOTP;
+EditText etLoginMobile;
     public loginFragment() {
     }
 
@@ -31,10 +33,15 @@ Button sendOTP;
         frameLayout = view.findViewById(R.id.frame);
         createNewAcc = view.findViewById(R.id.createNewAcc);
         sendOTP = view.findViewById(R.id.sendOTP);
+        etLoginMobile = view.findViewById(R.id.etLoginMobile);
         sendOTP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String mobile = etLoginMobile.getText().toString();
                 Fragment fragment = new OTPFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("mobile", mobile);
+                fragment.setArguments(bundle);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);

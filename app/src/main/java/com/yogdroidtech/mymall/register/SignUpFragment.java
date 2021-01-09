@@ -30,7 +30,6 @@ public class SignUpFragment extends Fragment {
     TextView alreadyUser;
 
     public SignUpFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -74,8 +73,17 @@ public class SignUpFragment extends Fragment {
         retrofitInterface.savePost(new SignUpPost(name, email, mobile)).enqueue(new Callback<SignUpResponse>() {
             @Override
             public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
-                Log.i("yogi", response.body().toString());
-            }
+
+                    Fragment fragment = new OTPFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("mobile", mobile);
+                    fragment.setArguments(bundle);
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                    fragmentTransaction.replace(R.id.frame, fragment);
+                    fragmentTransaction.commit();
+                }
 
             @Override
             public void onFailure(Call<SignUpResponse> call, Throwable t) {
