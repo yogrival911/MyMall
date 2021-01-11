@@ -1,5 +1,6 @@
 package com.yogdroidtech.mymall.addresses;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -14,8 +15,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.yogdroidtech.mymall.R;
+import com.yogdroidtech.mymall.newaddress.NewAddressActivity;
 import com.yogdroidtech.mymall.register.loginFragment;
 import com.yogdroidtech.mymall.util.RetrofitClientInstance;
 import com.yogdroidtech.mymall.util.RetrofitIInterface;
@@ -29,6 +32,7 @@ public class AddressFragment extends Fragment {
     RecyclerView recyclerAddress;
     Retrofit retrofit;
     SharedPreferences sharedPreferences;
+    Button addButton;
 
     public AddressFragment() {
     }
@@ -37,6 +41,8 @@ public class AddressFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view =  inflater.inflate(R.layout.fragment_address, container, false);
+
+        addButton = view.findViewById(R.id.addButton);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         String user_id = sharedPreferences.getString("user_id","");
@@ -71,6 +77,14 @@ public class AddressFragment extends Fragment {
                 }
             });
         }
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), NewAddressActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 

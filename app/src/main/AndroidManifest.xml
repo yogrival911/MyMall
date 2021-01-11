@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/splash_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyMall">
-        <activity android:name=".SplashActivity" android:theme="@style/splashTheme">
+        <activity android:name=".newaddress.NewAddressActivity"></activity>
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/splashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,8 +23,7 @@
         </activity>
         <activity android:name=".productdetail.ProductDetailActivity" />
         <activity android:name=".products.ProductsActivity" />
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

@@ -20,6 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.yogdroidtech.mymall.addresses.AddressFragment;
 import com.yogdroidtech.mymall.category.CategoryFragment;
+import com.yogdroidtech.mymall.contact.ContactFragment;
 import com.yogdroidtech.mymall.favourite.FavFragment;
 import com.yogdroidtech.mymall.home.HomeFragment;
 import com.yogdroidtech.mymall.register.SignUpFragment;
@@ -69,7 +70,19 @@ private ActionBarDrawerToggle toggle;
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                         fragmentTransaction.replace(R.id.frame, fragment);
+                        fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
+                        break;
+
+                    case R.id.contact:
+                        drawerLayout.closeDrawers();
+                        Fragment fragment2 = new ContactFragment();
+                        FragmentManager fragmentManager2 = getSupportFragmentManager();
+                        FragmentTransaction fragmentTransaction2 = fragmentManager2.beginTransaction();
+                        fragmentTransaction2.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                        fragmentTransaction2.replace(R.id.frame, fragment2);
+                        fragmentTransaction2.addToBackStack(null);
+                        fragmentTransaction2.commit();
                         break;
 
                     case R.id.share:

@@ -11,6 +11,7 @@ import com.yogdroidtech.mymall.register.SendOTPObject;
 import com.yogdroidtech.mymall.register.SignInObject;
 import com.yogdroidtech.mymall.register.SignUpPost;
 import com.yogdroidtech.mymall.register.SignUpResponse;
+import com.yogdroidtech.mymall.subcategory.SubCategoryRespsonse;
 
 import java.util.List;
 
@@ -53,6 +54,9 @@ public interface RetrofitIInterface {
 
         @GET("getuseraddresslist")
         Call<AddressRespsonse> getAddressList(@Header("token") String token);
+
+        @GET("Getsubcategorylistbycatid/{position}")
+        Call<SubCategoryRespsonse> getSubCategory(@Path("position") String position);
 
     }
 }

@@ -8,16 +8,29 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerAddress"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/addButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/sec"
+            android:inputType="textCapWords"
+            android:padding="10dp"
+            android:text="Add New Address"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="166dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
