@@ -67,7 +67,7 @@ private ActionBarDrawerToggle toggle;
                         selectedFragment = new CategoryFragment();
                         break;
                     case R.id.fav:
-                        selectedFragment = new loginFragment();
+                        selectedFragment = new FavFragment();
                         break;
                     case R.id.wallet:
                         selectedFragment = new WalletFragment();

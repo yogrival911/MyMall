@@ -61,10 +61,10 @@ public class ProductRecommededAdapter extends RecyclerView.Adapter<ProductRecomm
         TextView tvProductName, tvProductPrice, tvProductSellPrice;
         public RecViewHolder(@NonNull View itemView) {
             super(itemView);
-            ivProductItem = itemView.findViewById(R.id.ivProductItem);
-            tvProductName = itemView.findViewById(R.id.tvProductName);
+            ivProductItem = itemView.findViewById(R.id.ivWishListItem);
+            tvProductName = itemView.findViewById(R.id.tvWishListItemName);
             tvProductPrice = itemView.findViewById(R.id.tvProductPrice);
-            tvProductSellPrice = itemView.findViewById(R.id.tvProductSellPrice);
+            tvProductSellPrice = itemView.findViewById(R.id.tvWishListItemPrice);
         }
     }
 

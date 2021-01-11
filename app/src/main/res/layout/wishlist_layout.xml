@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Category"
+            android:text="Name"
             android:textSize="10sp"
             cardView:layout_constraintEnd_toEndOf="parent"
             cardView:layout_constraintHorizontal_bias="0.5"
@@ -77,6 +77,14 @@
                 android:textSize="10sp" />
 
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            cardView:layout_constraintStart_toEndOf="@+id/ivWishListItem"
+            cardView:layout_constraintTop_toTopOf="parent"
+            cardView:srcCompat="@drawable/fav_red" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
