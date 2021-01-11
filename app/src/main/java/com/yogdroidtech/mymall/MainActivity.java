@@ -77,7 +77,7 @@ private ActionBarDrawerToggle toggle;
                         Intent sharingIntent = new Intent();
                         sharingIntent.setAction(Intent.ACTION_SEND);
                         sharingIntent.setType("text/plain");
-                        String shareBody = "Check out VeggieGram";
+                        String shareBody = "Download VeggieGram";
                         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "VeggieGram");
                         sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
                         startActivity(Intent.createChooser(sharingIntent, "Share via"));
