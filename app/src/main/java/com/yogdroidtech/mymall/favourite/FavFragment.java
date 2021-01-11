@@ -1,5 +1,7 @@
 package com.yogdroidtech.mymall.favourite;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +13,7 @@ import android.view.ViewGroup;
 import com.yogdroidtech.mymall.R;
 
 public class FavFragment extends Fragment {
+    SharedPreferences sharedPreferences;
 
     public FavFragment() {
         // Required empty public constructor
@@ -21,6 +24,10 @@ public class FavFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_fav, container, false);
+        sharedPreferences = getActivity().getSharedPreferences("userid", Context.MODE_PRIVATE);
+
+
+
         return view;
     }
 }

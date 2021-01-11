@@ -1,6 +1,7 @@
 package com.yogdroidtech.mymall;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -41,6 +42,12 @@ private ActionBarDrawerToggle toggle;
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        getSupportActionBar().setLogo(R.mipmap.logo_text_foreground);
+//        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
 
 
         getSupportFragmentManager()

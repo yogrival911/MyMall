@@ -77,6 +77,7 @@ public class SignUpFragment extends Fragment {
                     Fragment fragment = new OTPFragment();
                     Bundle bundle = new Bundle();
                     bundle.putString("mobile", mobile);
+                    bundle.putString("userid", response.body().getData().toString());
                     fragment.setArguments(bundle);
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
