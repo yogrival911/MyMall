@@ -34,13 +34,11 @@ public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.MyVie
 
         context = parent.getContext();
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_item_layout, parent,false);
-
         return new CategoryAdapter.MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
 
         loadImage(holder.ivCategoryItem,categoryModelList.get(position).getIconUrl());
         holder.tvCategoryName.setText(categoryModelList.get(position).getCategoryName());
@@ -72,10 +70,9 @@ public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.MyVie
 
     public void loadImage(ImageView imageView, String url) {
         Glide.with(imageView.getContext())
-
                 .load(url).override(200,200)
                 .into(imageView);
-
     }
 
 }
+

@@ -47,7 +47,7 @@ public class ContactFragment  extends Fragment {
            public void onClick(View view) {
                Intent intent = new Intent(Intent.ACTION_SENDTO);
                intent.setData(Uri.parse("mailto:"));
-               intent.putExtra(Intent.EXTRA_EMAIL, "xyz@bmail.com");
+               intent.putExtra(Intent.EXTRA_EMAIL, "xyz@gmail.com");
                intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
                startActivity(intent);
            }

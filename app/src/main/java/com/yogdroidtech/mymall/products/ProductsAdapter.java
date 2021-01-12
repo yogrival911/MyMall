@@ -41,7 +41,7 @@ RecommendedProducts recommendedProducts;
         String img = recommendedProducts.getData().get(position).getImage();
         String url = "http://admin.veggiegram.in/adminuploads/products/" + img;
 
-        loadImage(holder.ivProductImage,url, new CircularProgressDrawable(holder.itemView.getContext()));
+        loadImage(holder.ivProductImage,url);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,11 +70,8 @@ RecommendedProducts recommendedProducts;
         }
     }
 
-    public void loadImage(ImageView imageView, String url, CircularProgressDrawable progressDrawable) {
-        RequestOptions options = new RequestOptions()
-                .placeholder(progressDrawable);
+    public void loadImage(ImageView imageView, String url) {
         Glide.with(imageView.getContext())
-                .setDefaultRequestOptions(options)
                 .load(url).override(200,200)
                 .into(imageView);
     }
