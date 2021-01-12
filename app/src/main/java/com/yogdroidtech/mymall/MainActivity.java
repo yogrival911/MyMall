@@ -53,12 +53,6 @@ private ActionBarDrawerToggle toggle;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setLogo(R.mipmap.logo_text_foreground);
-//        getSupportActionBar().setDisplayUseLogoEnabled(true);
-
-
-
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frame, new HomeFragment())
@@ -70,6 +64,11 @@ private ActionBarDrawerToggle toggle;
                 switch (item.getItemId()){
                     case R.id.review:
                         showAlertDialogButtonClicked();
+                        break;
+
+                    case R.id.order:
+                        Intent intent = new Intent(getApplicationContext(), ReviewActivity.class);
+                        startActivity(intent);
                         break;
                     case R.id.address:
                         drawerLayout.closeDrawers();
@@ -103,7 +102,6 @@ private ActionBarDrawerToggle toggle;
                         sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
                         startActivity(Intent.createChooser(sharingIntent, "Share via"));
                         break;
-
                 }
 
                 return true;
@@ -137,7 +135,6 @@ private ActionBarDrawerToggle toggle;
                 return true;
             }
         });
-
     }
 
     @Override
@@ -145,7 +142,6 @@ private ActionBarDrawerToggle toggle;
         getMenuInflater().inflate(R.menu.top_menu,menu);
         return  true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -173,30 +169,19 @@ private ActionBarDrawerToggle toggle;
         }
         return true;
 
-
     }
-
 
     public void showAlertDialogButtonClicked() {
 
-        // Create an alert builder
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setTitle("Name");
-
-        // set the custom layout
         final View customLayout = getLayoutInflater().inflate(R.layout.custom_diloge, null);
         builder.setView(customLayout);
 
-
-
-        // create and show
-        // the alert dialog
         AlertDialog dialog = builder.create();
         dialog.show();
+
     }
 
-    // Do something with the data
-    // coming from the AlertDialog
     private void sendDialogDataToActivity(String data) {
         Toast.makeText(this,
                 data,

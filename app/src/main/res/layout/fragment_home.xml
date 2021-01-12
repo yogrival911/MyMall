@@ -22,7 +22,7 @@
                 android:layout_margin="20dp"
                 android:background="@drawable/search_round_background"
                 android:backgroundTint="#FFFFFF"
-                android:clickable="true"
+                android:clickable="false"
                 android:iconifiedByDefault="false"
                 android:queryHint="Search Products" />
             <androidx.constraintlayout.widget.ConstraintLayout

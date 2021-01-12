@@ -33,7 +33,7 @@ public class FavFragment extends Fragment {
     RecyclerView wishListrecycler;
     Retrofit retrofit;
     public FavFragment() {
-        // Required empty public constructor
+
     }
 
 
@@ -78,9 +78,6 @@ public class FavFragment extends Fragment {
             });
 
         }
-
-
-
         return view;
     }
 }
