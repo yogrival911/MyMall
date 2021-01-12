@@ -28,6 +28,7 @@
                 android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="16dp"
                 android:text="9199999999999"
                 app:layout_constraintStart_toEndOf="@+id/imageView14"
@@ -44,10 +45,10 @@
 
             <ImageView
                 android:id="@+id/imageView14"
-                android:layout_width="51dp"
-                android:layout_height="61dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 android:tint="@color/purple_500"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -55,6 +56,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/whatsapp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -89,9 +91,10 @@
 
             <ImageView
                 android:id="@+id/imageView15"
-                android:layout_width="51dp"
-                android:layout_height="61dp"
-                android:layout_marginStart="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 android:tint="@color/purple_500"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -99,6 +102,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -132,10 +136,10 @@
 
             <ImageView
                 android:id="@+id/imageView16"
-                android:layout_width="51dp"
-                android:layout_height="61dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/email" />

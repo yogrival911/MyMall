@@ -42,7 +42,7 @@ public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.MyVie
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
 
-        loadImage(holder.ivCategoryItem,categoryModelList.get(position).getIconUrl(),getProgressDrawable(context));
+        loadImage(holder.ivCategoryItem,categoryModelList.get(position).getIconUrl());
         holder.tvCategoryName.setText(categoryModelList.get(position).getCategoryName());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -70,20 +70,12 @@ public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.MyVie
         }
     }
 
-    public void loadImage(ImageView imageView, String url, CircularProgressDrawable progressDrawable) {
-        RequestOptions options = new RequestOptions()
-                .placeholder(progressDrawable);
+    public void loadImage(ImageView imageView, String url) {
         Glide.with(imageView.getContext())
-                .setDefaultRequestOptions(options)
+
                 .load(url).override(200,200)
                 .into(imageView);
 
     }
-    public CircularProgressDrawable getProgressDrawable(Context context) {
-        CircularProgressDrawable cpd = new CircularProgressDrawable(context);
-        cpd.setStrokeWidth(10f);
-        cpd.setCenterRadius(50f);
-        cpd.start();
-        return cpd;
-    }
+
 }
