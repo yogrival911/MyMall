@@ -35,7 +35,6 @@ public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.MyVie
         context = parent.getContext();
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.category_item_layout, parent,false);
 
-
         return new CategoryAdapter.MyViewHolder(view);
     }
 
@@ -78,6 +77,7 @@ public class CategoryAdapter  extends RecyclerView.Adapter<CategoryAdapter.MyVie
                 .setDefaultRequestOptions(options)
                 .load(url).override(200,200)
                 .into(imageView);
+
     }
     public CircularProgressDrawable getProgressDrawable(Context context) {
         CircularProgressDrawable cpd = new CircularProgressDrawable(context);

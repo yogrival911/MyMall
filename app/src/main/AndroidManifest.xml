@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/splash_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyMall">
-        <activity android:name=".newaddress.NewAddressActivity"></activity>
+        <activity android:name=".ReviewActivity"></activity>
+        <activity android:name=".newaddress.NewAddressActivity" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/splashTheme">

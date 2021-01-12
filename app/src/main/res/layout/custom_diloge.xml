@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="161dp">
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="131dp"
+            android:layout_marginBottom="6dp"
+            android:src="@mipmap/splash_logo_foreground"
+            app:layout_constraintBottom_toTopOf="@+id/textView12"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:srcCompat="@mipmap/splash_logo_foreground" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="VeggieGram"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/imageView11"
+            app:layout_constraintStart_toStartOf="@+id/imageView11"
+            app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Please share your feddback"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/textView12"
+            app:layout_constraintStart_toStartOf="@+id/textView12"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/white"
+            android:text="Submit"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/textView16"
+            app:layout_constraintStart_toStartOf="@+id/textView16"
+            app:layout_constraintTop_toBottomOf="@+id/textView16">
+
+            <ImageView
+                android:id="@+id/imageView22"
+                android:layout_width="39dp"
+                android:layout_height="38dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/star_black" />
+
+            <ImageView
+                android:id="@+id/imageView23"
+                android:layout_width="39dp"
+                android:layout_height="38dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/star_black" />
+
+            <ImageView
+                android:id="@+id/imageView24"
+                android:layout_width="39dp"
+                android:layout_height="38dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/star_black" />
+
+            <ImageView
+                android:id="@+id/imageView25"
+                android:layout_width="39dp"
+                android:layout_height="38dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/star_black" />
+
+            <ImageView
+                android:id="@+id/imageView26"
+                android:layout_width="39dp"
+                android:layout_height="38dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/star_black" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

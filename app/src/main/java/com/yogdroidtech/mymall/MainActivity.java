@@ -3,18 +3,23 @@ package com.yogdroidtech.mymall;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -63,6 +68,9 @@ private ActionBarDrawerToggle toggle;
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
+                    case R.id.review:
+                        showAlertDialogButtonClicked();
+                        break;
                     case R.id.address:
                         drawerLayout.closeDrawers();
                         Fragment fragment = new AddressFragment();
@@ -107,6 +115,7 @@ private ActionBarDrawerToggle toggle;
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment selectedFragment = null;
                 switch (item.getItemId()) {
+
                     case R.id.home:
                         selectedFragment = new HomeFragment();
                         break;
@@ -128,6 +137,7 @@ private ActionBarDrawerToggle toggle;
                 return true;
             }
         });
+
     }
 
     @Override
@@ -145,9 +155,11 @@ private ActionBarDrawerToggle toggle;
         }
         switch (item.getItemId()){
 
+
             case R.id.address:
 
             case R.id.order:
+                Fragment fragment = new loginFragment();
                 break;
             case R.id.share:
                 Intent sharingIntent = new Intent();
@@ -158,10 +170,38 @@ private ActionBarDrawerToggle toggle;
                 sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(sharingIntent, "Share via"));
                 break;
-
         }
         return true;
 
 
     }
+
+
+    public void showAlertDialogButtonClicked() {
+
+        // Create an alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setTitle("Name");
+
+        // set the custom layout
+        final View customLayout = getLayoutInflater().inflate(R.layout.custom_diloge, null);
+        builder.setView(customLayout);
+
+
+
+        // create and show
+        // the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    // Do something with the data
+    // coming from the AlertDialog
+    private void sendDialogDataToActivity(String data) {
+        Toast.makeText(this,
+                data,
+                Toast.LENGTH_SHORT)
+                .show();
+    }
+
 }
